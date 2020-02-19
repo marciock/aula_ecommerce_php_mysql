@@ -1,10 +1,11 @@
 <?php
 
 $route[]=['/','dashController'];
-$route[]=['/carrinho','listaCarrinho'];
+$route[]=['teste','testeController'];
+$route[]=['outro_teste','outroTesteController'];
 
 
 
 
 
-return $route;
+//return $route;

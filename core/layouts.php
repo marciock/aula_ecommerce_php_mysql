@@ -1,32 +1,38 @@
 <?php
 require_once __DIR__.'/route.php';
 
-function getURl($routes){
 
+//function getUrl($routes){
+   
     $url=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
-   // $urlPart=explode('/',$url);
 
-    $urlFinal='';
+    $atual=explode('/',$url);
+    $urlAtual=$atual[2];
     
-        foreach($routes as $r){
+    if($urlAtual){
+        foreach($route as $r){
 
-            if($r[0]==$url){
-                $urlFinal=$r[1];
-            break;
-            }
-            
-        }
+          if($urlAtual==$r[0]){
+          // echo $r[1];
 
-        return $urlFinal;
-}   
+          require_once __DIR__."/../controller/".$r[1].".php";
 
-   $get=getURl($route);
-function show($url){
+          }
+      }
+    }else{
+      require_once __DIR__."/../controller/".$route[0][1].".php";
 
-   $myView=require_once __DIR__."/../controller/{$url}.php";
-    //echo $url;
+    }
     
-}
+     
+     
+      //$pagina=(file_exists("{$pasta}/".$atual[0].'.php') && in_array($atual[0],$permissao)) ? $atual[0]:'erro';
+     // $id=intval($atual[1]);
+     
+     
 
+  
+ 
+//}   
 
- return show($get);
+   
